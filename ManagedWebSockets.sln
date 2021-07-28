@@ -9,7 +9,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{22D1D1DE
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ManagedWebSockets", "src\ManagedWebSockets\ManagedWebSockets.csproj", "{E4EB6034-753B-4CDE-B6C1-5D8C2D342C63}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{F10E84AB-60B0-4862-BDD7-CBC65DA84950}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{5EC02531-43DD-4A5B-828E-68BDED16EC4C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCoreSample", "samples\AspNetCoreSample\AspNetCoreSample.csproj", "{A9235B15-544E-4673-ACD8-97A01709AA16}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,12 +23,17 @@ Global
 		{E4EB6034-753B-4CDE-B6C1-5D8C2D342C63}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E4EB6034-753B-4CDE-B6C1-5D8C2D342C63}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E4EB6034-753B-4CDE-B6C1-5D8C2D342C63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9235B15-544E-4673-ACD8-97A01709AA16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9235B15-544E-4673-ACD8-97A01709AA16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9235B15-544E-4673-ACD8-97A01709AA16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9235B15-544E-4673-ACD8-97A01709AA16}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{E4EB6034-753B-4CDE-B6C1-5D8C2D342C63} = {5172D997-7848-42FF-A8E5-808A88255E88}
+		{A9235B15-544E-4673-ACD8-97A01709AA16} = {5EC02531-43DD-4A5B-828E-68BDED16EC4C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9C3D2893-132B-4B77-8EE4-F3BA96C22AF6}
