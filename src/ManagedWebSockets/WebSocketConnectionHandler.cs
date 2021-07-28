@@ -5,13 +5,13 @@ using System.Threading.Tasks;
 
 namespace ManagedWebSockets
 {
-    internal class WebSocketConnectionHandler<THandler> : ConnectionHandler 
-        where THandler : WebSocketHandler
+    internal class WebSocketConnectionHandler<THub> : ConnectionHandler 
+        where THub : WebSocketHub
     {
 
-        private ILogger<WebSocketConnectionHandler<THandler>> _logger;
+        private ILogger<WebSocketConnectionHandler<THub>> _logger;
 
-        public WebSocketConnectionHandler(ILogger<WebSocketConnectionHandler<THandler>> logger)
+        public WebSocketConnectionHandler(ILogger<WebSocketConnectionHandler<THub>> logger)
         {
             _logger = logger;
         }

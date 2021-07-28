@@ -2,10 +2,10 @@
 
 namespace ManagedWebSockets.Handlers
 {
-    public interface IWebSocketHandler<TIn, TOut>
+    internal interface IWebSocketHub<TIn, TOut>
     {
         Task ConnectAsync();
         Task DisconnectAsync();
-        Task ProcessMessage();
+        Task RecieveMessageAsync();
     }
 }

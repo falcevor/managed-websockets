@@ -1,16 +1,25 @@
 ﻿using ManagedWebSockets.Handlers;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Connections;
 using Microsoft.AspNetCore.Routing;
 
 namespace ManagedWebSockets.Extensions
 {
-    public class EndpointRouteBuilderExtensions
+    public static class EndpointRouteBuilderExtensions
     {
-        public static IEndpointRouteBuilder MapWebSocketHandler<THandler>(IEndpointRouteBuilder builder, string pattern) 
-            where THandler : WebSocketHandler
+        public static IEndpointRouteBuilder MapWebSocketHandler<THub>(this IEndpointRouteBuilder endpoints, string pattern) 
+            where THub : WebSocketHub
         {
-            builder.MapConnections(pattern, config => config.UseWebSocketHandler<THandler>());
-            return builder;
+            var connectionBuilder = new ConnectionBuilder(endpoints.ServiceProvider);
+            connectionBuilder.UseWebSocketHandler<THub>();
+            var connectionDelegate = connectionBuilder.Build();
+
+            var app = endpoints.CreateApplicationBuilder();
+            app.UseWebSockets();
+            app.Run(c => )
+
+            
+            return endpoints;
         }
     }
 }

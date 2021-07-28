@@ -5,11 +5,10 @@ namespace ManagedWebSockets.Extensions
 {
     internal static class ConnectionBuilderExtensions
     {
-        public static IConnectionBuilder UseWebSocketHandler<THandler>(this IConnectionBuilder builder)
-            where THandler : WebSocketHandler
+        public static IConnectionBuilder UseWebSocketHandler<THub>(this IConnectionBuilder builder)
+            where THub : WebSocketHub
         {
-            builder.UseConnectionHandler<WebSocketConnectionHandler<THandler>>();
-            return builder;
+            return builder.UseConnectionHandler<WebSocketConnectionHandler<THub>>();
         }
     }
 }
