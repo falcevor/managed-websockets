@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Connections;
 using Microsoft.AspNetCore.Routing;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 
 namespace ManagedWebSockets.Extensions
 {
@@ -16,10 +18,15 @@ namespace ManagedWebSockets.Extensions
 
             var app = endpoints.CreateApplicationBuilder();
             app.UseWebSockets();
-            app.Run(c => )
+            var logger = endpoints.ServiceProvider.GetRequiredService<ILogger<WebSocketDispatcher>>();
+            var dispatcher = new WebSocketDispatcher(logger);
+            app.Run(async c => await dispatcher.DispatchAsync(c, connectionDelegate));
+            var executehandler = app.Build();
 
-            
+            var executeBuilder = endpoints.Map(pattern, executehandler);
+
             return endpoints;
         }
+
     }
 }

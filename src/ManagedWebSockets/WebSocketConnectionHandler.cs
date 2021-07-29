@@ -1,6 +1,7 @@
 ﻿using ManagedWebSockets.Handlers;
 using Microsoft.AspNetCore.Connections;
 using Microsoft.Extensions.Logging;
+using System.Net.WebSockets;
 using System.Threading.Tasks;
 
 namespace ManagedWebSockets
@@ -18,18 +19,14 @@ namespace ManagedWebSockets
 
         public override async Task OnConnectedAsync(ConnectionContext connection)
         {
-            await DispatchMessage();
+            Handle(connection.Items["message"].ToString());
         }
 
-        private async Task DispatchMessage()
+
+
+        private void Handle(string message)
         {
-            await Task.Run(() =>
-            {
-                while (true)
-                {
-                    _logger.LogInformation("test");
-                }
-            });
+            _logger.LogInformation(message);
         }
     }
 }
